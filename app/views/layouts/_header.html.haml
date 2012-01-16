@@ -1,0 +1,11 @@
+%header
+  #banner
+    .banner-in
+      - if user_signed_in?
+        %span <i>#{current_user.email}</i>
+        = link_to "logout", destroy_user_session_path, :method => :delete
+      - else
+        = link_to "login", new_user_session_path
+  %hgroup
+    %h1= link_to "Simple Chat", root_path
+    %h2 Created by Webber Q. Han

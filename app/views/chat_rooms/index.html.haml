@@ -1,0 +1,12 @@
+- if @chat_rooms.any?
+  %section
+    %h3 Avialable rooms
+    %ul
+      - @chat_rooms.each do |room|
+        %li= link_to "#{room.name} | #{room.users.count + 1} people online", join_chat_room_path(room)  
+%section
+  %h3 Create a new room
+  = form_tag '/chat_rooms', :method => :post, :id => 'form-1' do
+    .hdiv= text_field_tag 'name', nil, :size => 12, :maxlength => 15, :class => "text" 
+    .hdiv= submit_tag 'Create', :class => "button"
+  

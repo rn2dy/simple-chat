@@ -1,0 +1,23 @@
+development:
+  host: localhost
+  database: simple_chat_development
+  raise_not_found_error: false
+
+test:
+  host: localhost
+  database: simple_chat_test
+  raise_not_found_error: false
+
+# set these environment variables on your prod server
+production:
+  host: <%= ENV['MONGOID_HOST'] %>
+  port: <%= ENV['MONGOID_PORT'] %>
+  username: <%= ENV['MONGOID_USERNAME'] %>
+  password: <%= ENV['MONGOID_PASSWORD'] %>
+  database: <%= ENV['MONGOID_DATABASE'] %>
+  raise_not_found_error: false
+  # slaves:
+  #   - host: slave1.local
+  #     port: 27018
+  #   - host: slave2.local
+  #     port: 27019
