@@ -1,0 +1,22 @@
+!!! Basic
+%html
+  %head
+    %title SimpleChat
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "http://js.pusher.com/1.11/pusher.min.js"
+    = yield :javascript_includes
+    = csrf_meta_tags
+    :javascript
+      Pusher.log = function(message) {
+        if (window.console && window.console.log) window.console.log(message);
+      };
+      var PUSHER_KEY = "#{Pusher.key}"   
+  %body
+    .container
+      = render :partial => "layouts/header"
+      %hr
+      = render :partial => "layouts/content" 
+      %hr
+      = render :partial => "layouts/footer"
+    = debug(params) if Rails.env.development?

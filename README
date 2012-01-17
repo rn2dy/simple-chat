@@ -1,0 +1,2 @@
+This chat app is powered by Pusher and mongoDB + mongoid. 
+The inspiration comes from "Pusher Chat" creator Tom Amfeld (pusher-chat.heroku.com).

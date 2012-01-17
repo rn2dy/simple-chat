@@ -1,0 +1,42 @@
+= content_for :javascript_includes do
+  = javascript_include_tag "chat-room.js"
+  = javascript_include_tag "chat-room.functions.js"
+:javascript
+  channel = "#{@chat_room.channel_name}"
+  chatroom_id = "#{@chat_room.id}"
+  my_id = "#{current_user.id}"
+  old_nickname = "#{current_user.nickname}"
+  
+#chat-box
+  .left-panel
+    #info-bar
+      .left #{@chat_room.name} 
+      .right
+        %span New nickname 
+        %span#name-update{ :style => "display:none;" }
+          = text_field_tag 'nickname', nil, :size => 10, :maxlength => 15, :id => "input-2"
+          = submit_tag 'save', :id => "button-3"
+      .clearfix
+    #msg-box-1
+      %ul
+        - @chat_room.messages.each do |msg|
+          - if msg.user_id == current_user.id 
+            %li{ :id => msg.id, :class => 'self' } <span>#{msg.user.nickname} : </span> #{url2html(msg.content).html_safe}
+          - else
+            %li{ :id => msg.id } <span>#{msg.user.nickname} :</span> #{url2html(msg.content).html_safe}
+      #msg-overlay
+    #msg-box-2
+      = text_area_tag 'message', nil, :id => 'message', :disabled => 'disabled'
+      #button-2 Send 
+  .right-panel
+    #user-panel
+      %span#member_count 0
+      %ul
+        %li{ :id => @chat_room.owner.id }= @chat_room.owner.nickname
+        - @chat_room.users.each do |user|
+          %li{ :id => user.id }= user.nickname
+
+
+
+
+
