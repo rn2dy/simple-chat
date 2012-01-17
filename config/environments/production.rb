@@ -15,11 +15,7 @@ SimpleChat::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-<<<<<<< HEAD
-  config.assets.compile = false 
-=======
   config.assets.compile = false
->>>>>>> cb1c4a3f2261e8feb1b7eeaea68b2ac9c31a0998
 
   # Generate digests for assets URLs
   config.assets.digest = true
