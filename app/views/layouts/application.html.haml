@@ -2,8 +2,8 @@
 %html
   %head
     %title SimpleChat
-    = stylesheet_link_tag "/assets/application.css"
-    = javascript_include_tag "/assets/application.js"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
     = javascript_include_tag "http://js.pusher.com/1.11/pusher.min.js"
     = yield :javascript_includes
     = csrf_meta_tags

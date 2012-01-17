@@ -1,6 +1,6 @@
 = content_for :javascript_includes do
-  = javascript_include_tag "/assets/chat-room.js"
-  = javascript_include_tag "/assets/chat-room.functions.js"
+  = javascript_include_tag "chat-room"
+  = javascript_include_tag "chat-room.functions"
 :javascript
   channel = "#{@chat_room.channel_name}"
   chatroom_id = "#{@chat_room.id}"
